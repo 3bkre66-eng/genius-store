@@ -1,0 +1,24 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "project"
+public_folder: "project"
+
+collections:
+  - name: "products"
+    label: "المنتجات"
+    folder: "project"
+    extension: "html"
+    format: "frontmatter"
+    create: true
+    fields:
+      - { label: "نوع المنتج (sub للاشتراك / acc للألعاب / topup للشحن)", name: "data-cat", widget: "string" }
+      - { label: "أيقونة المنتج (إيموجي مثل 🎬 أو 🎧)", name: "data-icon", widget: "string" }
+      - { label: "اسم المنتج", name: "data-name", widget: "string" }
+      - { label: "وصف المنتج الطويل", name: "data-desc", widget: "text" }
+      - { label: "السعر البرمجي (أرقام فقط بدون فواصل)", name: "data-price", widget: "string" }
+      - { label: "السعر النصي المعروض (مثل 12,500)", name: "price", widget: "string" }
+      - { label: "العملة (مثل د.ع)", name: "data-currency", widget: "string" }
+      - { label: "مدة التسليم (مثل يصلك خلال 5 دقائق)", name: "data-deliver", widget: "string" }
+      - { label: "عبارة مميزة قصيرة (مثل جودة 4K)", name: "data-tag", widget: "string" }
