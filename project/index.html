@@ -1,0 +1,331 @@
+~<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>عبقري | GENIUS — متجر الاشتراكات والألعاب</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Tajawal:wght@400;500;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo"><img src="logo.jpg" alt="عبقري GENIUS"></div>
+    <nav class="nav-links">
+      <a href="#catalog">المتجر</a>
+      <a href="#how">كيف يعمل</a>
+      <a onclick="toggleChat(true)">الدعم</a>
+      <a onclick="openTracking()">تتبع الطلب</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="cart-btn" onclick="openCart()" aria-label="السلة">🛒<span class="cart-dot" id="cartCount">0</span></button>
+      <a class="btn btn-ghost" onclick="openLogin()">تسجيل الدخول</a>
+      <a class="btn btn-red" href="#catalog">تصفح المتجر</a>
+      <button class="menu-toggle">☰</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow-status"><span class="pulse"></span> +1,240 عملية تسليم فوري خلال آخر 24 ساعة</div>
+      <h1>اشترِ بذكاء… واستلم <span>خلال دقائق</span></h1>
+      <p>عبقري منصتك لشراء الاشتراكات، حسابات الألعاب، وشحن العملات. قرار ذكي، تسليم فوري، ودعم يفهم شو تحتاج بالضبط.</p>
+      <div class="hero-actions">
+        <a class="btn btn-red" href="#catalog">شوف المنتجات</a>
+        <a class="btn btn-ghost" href="#how">كيف تتم عملية الشراء؟</a>
+      </div>
+      <div class="hero-stats">
+        <div><b class="mono">40K+</b><span>طلب مكتمل</span></div>
+        <div><b class="mono">4.9</b><span>تقييم المستخدمين</span></div>
+        <div><b class="mono">24/7</b><span>دعم فني</span></div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="mascot-frame"><img src="logo.jpg" alt="شخصية عبقري"></div>
+      <div class="ticket">
+        <div class="ticket-top">
+          <div class="ticket-icon">🎮</div>
+          <div><h3>PlayStation Plus — Extra</h3><p>اشتراك 12 شهر، تفعيل فوري على حسابك</p></div>
+        </div>
+        <div class="perf"></div>
+        <div class="ticket-bottom">
+          <div class="price-block"><div class="old mono">124,000 د.ع</div><div class="now mono">91,000 <span class="curr">د.ع</span></div></div>
+          <div class="deliver-tag"><span class="pulse"></span> يصلك خلال 5 دقائق</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="wrap trust-grid">
+    <div class="trust-item"><span class="ic">⚡</span><div><b>تسليم فوري</b>الكود يصلك تلقائياً بعد الدفع</div></div>
+    <div class="trust-item"><span class="ic">🔒</span><div><b>دفع آمن</b>تشفير كامل لبياناتك المالية</div></div>
+    <div class="trust-item"><span class="ic">↺</span><div><b>ضمان استرجاع</b>استرداد كامل عند وجود خلل بالمنتج</div></div>
+    <div class="trust-item"><span class="ic">💬</span><div><b>دعم مباشر</b>فريق يرد خلال دقائق عبر الشات</div></div>
+  </div>
+</div>
+
+<div class="promo-bar">
+  <div class="wrap promo-inner">
+    <span>🔥 <b>عروض عبقري:</b> خصومات تصل حتى 22% على منتجات مختارة</span>
+    <span class="promo-timer">⏱ ينتهي خلال <span id="promoCountdown" class="mono">03:00:00</span></span>
+  </div>
+</div>
+
+<section class="catalog" id="catalog">
+  <div class="wrap">
+    <div class="section-head">
+      <div><h2>تصفح المتجر</h2><p>اضغط على أي منتج تشوف عرض تعريفي قصير قبل تفاصيله الكاملة.</p></div>
+    </div>
+    <div class="tabs">
+      <div class="tab active" data-filter="all">الكل</div>
+      <div class="tab" data-filter="sub">الاشتراكات</div>
+      <div class="tab" data-filter="acc">حسابات الألعاب</div>
+      <div class="tab" data-filter="topup">شحن وعملات</div>
+    </div>
+    <div class="grid" id="productGrid">
+
+      <div class="card show" data-cat="sub" onclick="openProduct(this)" data-icon="🎬" data-name="Netflix Premium" data-desc="شاشة خاصة، جودة 4K، شهر كامل من المشاهدة بدون قيود." data-price="12500" data-oldprice="16000" data-currency="د.ع" data-deliver="يصلك خلال 5 دقائق" data-tag="جودة 4K بدون حدود">
+        <span class="badge-instant">تسليم فوري</span>
+        <span class="badge-discount">خصم 22%</span>
+        <div class="card-top"><div class="card-icon">🎬</div><div><h3>Netflix Premium</h3><p>شاشة خاصة، جودة 4K، شهر كامل</p></div></div>
+        <div class="perf"></div>
+        <div class="card-bottom">
+          <div class="price-wrap"><div class="price-old mono">16,000</div><div class="price mono">12,500<span class="curr">د.ع</span></div></div>
+          <button class="add-btn" onclick="event.stopPropagation(); addToCart(this.closest('.card'))" aria-label="أضف للسلة">+</button>
+        </div>
+      </div>
+
+      <div class="card show" data-cat="sub" onclick="openProduct(this)" data-icon="🎧" data-name="Spotify Premium" data-desc="بدون إعلانات، تحميل غير محدود، وجودة صوت عالية على كل أجهزتك." data-price="7000" data-currency="د.ع" data-deliver="يصلك خلال 5 دقائق" data-tag="صوت نقي بلا إعلانات">
+        <span class="badge-instant">تسليم فوري</span>
+        <div class="card-top"><div class="card-icon">🎧</div><div><h3>Spotify Premium</h3><p>بدون إعلانات، تحميل غير محدود</p></div></div>
+        <div class="perf"></div>
+        <div class="card-bottom">
+          <div class="price-wrap"><div class="price mono">7,000<span class="curr">د.ع</span></div></div>
+          <button class="add-btn" onclick="event.stopPropagation(); addToCart(this.closest('.card'))" aria-label="أضف للسلة">+</button>
+        </div>
+      </div>
+
+      <div class="card show" data-cat="sub" onclick="openProduct(this)" data-icon="📺" data-name="Shahid VIP" data-desc="مباريات حصرية ومسلسلات عربية وأجنبية، شهر كامل بدون إعلانات." data-price="10500" data-currency="د.ع" data-deliver="يصلك خلال 5 دقائق" data-tag="حصري ومباشر">
+        <span class="badge-instant">تسليم فوري</span>
+        <div class="card-top"><div class="card-icon">📺</div><div><h3>Shahid VIP</h3><p>مباريات ومسلسلات حصرية، شهر</p></div></div>
+        <div class="perf"></div>
+        <div class="card-bottom">
+          <div class="price-wrap"><div class="price mono">10,500<span class="curr">د.ع</span></div></div>
+          <button class="add-btn" onclick="event.stopPropagation(); addToCart(this.closest('.card'))" aria-label="أضف للسلة">+</button>
+        </div>
+      </div>
+
+      <div class="card show" data-cat="acc" onclick="openProduct(this)" data-icon="⚽" data-name="حساب EA FC Ultimate" data-desc="فريق مكتمل بلاعبين مميزين، مع رصيد عملات داخل اللعبة." data-price="38000" data-oldprice="46000" data-currency="د.ع" data-deliver="يصلك خلال 10 دقائق" data-tag="فريق أحلامك جاهز">
+        <span class="badge-instant">تسليم فوري</span>
+        <span class="badge-discount">خصم 17%</span>
+        <div class="card-top"><div class="card-icon">⚽</div><div><h3>حساب EA FC Ultimate</h3><p>فريق مكتمل + عملات داخل اللعبة</p></div></div>
+        <div class="perf"></div>
+        <div class="card-bottom">
+          <div class="price-wrap"><div class="price-old mono">46,000</div><div class="price mono">38,000<span class="curr">د.ع</span></div></div>
+          <button class="add-btn" onclick="event.stopPropagation(); addToCart(this.closest('.card'))" aria-label="أضف للسلة">+</button>
+        </div>
+      </div>
+
+      <div class="card show" data-cat="acc" onclick="openProduct(this)" data-icon="🪂" data-name="حساب Fortnite نادر" data-desc="سكنات نادرة غير متوفرة بالمتجر حالياً، مع رتبة تنافسية عالية." data-price="37500" data-currency="د.ع" data-deliver="يصلك خلال 10 دقائق" data-tag="سكنات نادرة">
+        <span class="badge-instant">تسليم فوري</span>
+        <div class="card-top"><div class="card-icon">🪂</div><div><h3>حساب Fortnite نادر</h3><p>سكنات نادرة + رتبة عالية</p></div></div>
+        <div class="perf"></div>
+        <div class="card-bottom">
+          <div class="price-wrap"><div class="price mono">37,500<span class="curr">د.ع</span></div></div>
+          <button class="add-btn" onclick="event.stopPropagation(); addToCart(this.closest('.card'))" aria-label="أضف للسلة">+</button>
+        </div>
+      </div>
+
+      <div class="card show" data-cat="acc" onclick="openProduct(this)" data-icon="🗂️" data-name="حساب Steam بمكتبة ألعاب" data-desc="أكثر من 40 لعبة مفعّلة على الحساب مباشرة، جاهزة للتحميل." data-price="68000" data-currency="د.ع" data-deliver="يصلك خلال 10 دقائق" data-tag="مكتبة جاهزة بالكامل">
+        <span class="badge-instant">تسليم فوري</span>
+        <div class="card-top"><div class="card-icon">🗂️</div><div><h3>حساب Steam بمكتبة ألعاب</h3><p>+40 لعبة مفعّلة على الحساب</p></div></div>
+        <div class="perf"></div>
+        <div class="card-bottom">
+          <div class="price-wrap"><div class="price mono">68,000<span class="curr">د.ع</span></div></div>
+          <button class="add-btn" onclick="event.stopPropagation(); addToCart(this.closest('.card'))" aria-label="أضف للسلة">+</button>
+        </div>
+      </div>
+
+      <div class="card show" data-cat="topup" onclick="openProduct(this)" data-icon="🔫" data-name="شحن PUBG — 660 UC" data-desc="يضاف مباشرة على الآيدي بدون الحاجة لكلمة المرور." data-price="11000" data-oldprice="14000" data-currency="د.ع" data-deliver="يصلك خلال دقيقتين" data-tag="إضافة مباشرة">
+        <span class="badge-instant">تسليم فوري</span>
+        <span class="badge-discount">خصم 21%</span>
+        <div class="card-top"><div class="card-icon">🔫</div><div><h3>شحن PUBG — 660 UC</h3><p>يضاف مباشرة على الآيدي</p></div></div>
+        <div class="perf"></div>
+        <div class="card-bottom">
+          <div class="price-wrap"><div class="price-old mono">14,000</div><div class="price mono">11,000<span class="curr">د.ع</span></div></div>
+          <button class="add-btn" onclick="event.stopPropagation(); addToCart(this.closest('.card'))" aria-label="أضف للسلة">+</button>
+        </div>
+      </div>
+
+      <div class="card show" data-cat="topup" onclick="openProduct(this)" data-icon="💎" data-name="شحن Free Fire — 1080 جوهرة" data-desc="يضاف مباشرة على الآيدي، صالح لكل الأحداث داخل اللعبة." data-price="16500" data-currency="د.ع" data-deliver="يصلك خلال دقيقتين" data-tag="إضافة مباشرة">
+        <span class="badge-instant">تسليم فوري</span>
+        <div class="card-top"><div class="card-icon">💎</div><div><h3>شحن Free Fire — 1080 جوهرة</h3><p>يضاف مباشرة على الآيدي</p></div></div>
+        <div class="perf"></div>
+        <div class="card-bottom">
+          <div class="price-wrap"><div class="price mono">16,500<span class="curr">د.ع</span></div></div>
+          <button class="add-btn" onclick="event.stopPropagation(); addToCart(this.closest('.card'))" aria-label="أضف للسلة">+</button>
+        </div>
+      </div>
+
+      <div class="card show" data-cat="topup" onclick="openProduct(this)" data-icon="💳" data-name="بطاقة Steam Wallet" data-desc="كود رقمي فئة 20 دولار، يضاف مباشرة لمحفظة حسابك على Steam." data-price="24500" data-oldprice="29000" data-currency="د.ع" data-deliver="يصلك خلال دقيقتين" data-tag="كود جاهز فوراً">
+        <span class="badge-instant">تسليم فوري</span>
+        <span class="badge-discount">خصم 16%</span>
+        <div class="card-top"><div class="card-icon">💳</div><div><h3>بطاقة Steam Wallet</h3><p>كود رقمي فئة 20 دولار</p></div></div>
+        <div class="perf"></div>
+        <div class="card-bottom">
+          <div class="price-wrap"><div class="price-old mono">29,000</div><div class="price mono">24,500<span class="curr">د.ع</span></div></div>
+          <button class="add-btn" onclick="event.stopPropagation(); addToCart(this.closest('.card'))" aria-label="أضف للسلة">+</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="wrap">
+    <div class="section-head"><div><h2>كيف تتم عملية الشراء</h2><p>ثلاث خطوات بسيطة من الاختيار للاستلام.</p></div></div>
+    <div class="how-grid">
+      <div class="step"><div class="step-num mono">01</div><h3>اختر منتجك</h3><p>حدد الاشتراك أو الحساب أو الشحنة اللي تحتاجها من القائمة.</p></div>
+      <div class="step"><div class="step-num mono">02</div><h3>ادفع بأمان</h3><p>أكمل الدفع عبر إحدى وسائل الدفع المتاحة، بياناتك مشفّرة بالكامل.</p></div>
+      <div class="step"><div class="step-num mono">03</div><h3>استلم فوراً</h3><p>الكود أو بيانات الحساب توصلك مباشرة على بريدك ولوحة حسابك.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="pay">
+  <div class="wrap">
+    <p>وسائل الدفع المتاحة</p>
+    <div class="pay-icons">
+      <span class="ph-link">زين كاش</span><span class="ph-link">آسيا حوالة</span><span class="ph-link">ماستركارد</span><span class="ph-link">تسليم كاش عند الاستلام</span>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="logo"><img src="logo.jpg" alt="عبقري GENIUS"></div>
+        <p>متجر رقمي لبيع الاشتراكات وحسابات الألعاب وشحن العملات، بتسليم فوري ودعم على مدار الساعة.</p>
+      </div>
+      <div class="foot-col"><h4>المتجر</h4><ul>
+        <li><a class="ph-link">الاشتراكات</a></li><li><a class="ph-link">حسابات الألعاب</a></li><li><a class="ph-link">شحن وعملات</a></li>
+      </ul></div>
+      <div class="foot-col"><h4>الدعم</h4><ul>
+        <li><a onclick="toggleChat(true)">مركز المساعدة</a></li><li><a class="ph-link">سياسة الاسترجاع</a></li><li><a onclick="toggleChat(true)">تواصل معنا</a></li>
+      </ul></div>
+      <div class="foot-col"><h4>الشركة</h4><ul>
+        <li><a class="ph-link">من نحن</a></li><li><a class="ph-link">الشروط والأحكام</a></li><li><a class="ph-link">سياسة الخصوصية</a></li>
+      </ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 عبقري GENIUS. جميع الحقوق محفوظة.</span>
+      <span>تصميم تجريبي لعرض الفكرة فقط</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ PRODUCT MODAL ============ -->
+<div class="overlay" id="productOverlay" onclick="if(event.target===this) closeOverlay('productOverlay')">
+  <div class="modal-card" id="modalCard">
+    <button class="overlay-close" onclick="closeOverlay('productOverlay')" aria-label="إغلاق">✕</button>
+    <div class="ad-stage">
+      <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
+      <div class="ad-icon" id="modalIcon">🎬</div>
+      <div class="ad-tagline" id="modalTag">جودة 4K بدون حدود</div>
+    </div>
+    <div class="modal-body">
+      <h3 id="modalName">Netflix Premium</h3>
+      <p class="desc" id="modalDesc">شاشة خاصة، جودة 4K، شهر كامل من المشاهدة بدون قيود.</p>
+      <div class="modal-perf"></div>
+      <div class="modal-price-row">
+        <div class="modal-price-wrap">
+          <span class="modal-discount-tag" id="modalDiscountTag" style="display:none;"></span>
+          <div class="modal-old-price mono" id="modalOldPrice" style="display:none;"></div>
+          <div class="modal-price mono"><span id="modalPrice">0</span><span class="curr" id="modalCurrency">د.ع</span></div>
+        </div>
+        <div class="modal-deliver"><span class="pulse"></span><span id="modalDeliver">يصلك خلال 5 دقائق</span></div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" onclick="addFromModal()">أضف للسلة</button>
+        <button class="btn" style="background:#25D366; color:#08210f;" onclick="sendSingleProductToWhatsApp(currentProduct)">🟢 اطلب عبر واتساب</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ LOGIN MODAL ============ -->
+<div class="overlay" id="loginOverlay" onclick="if(event.target===this) closeOverlay('loginOverlay')">
+  <div class="plain-card">
+    <button class="overlay-close" onclick="closeOverlay('loginOverlay')" aria-label="إغلاق">✕</button>
+    <h3>تسجيل الدخول</h3>
+    <p class="sub">هاد نموذج تجريبي — الدخول هون بيمثّل الشكل بس، بدون حساب حقيقي.</p>
+    <form onsubmit="event.preventDefault(); closeOverlay('loginOverlay'); showToast('تم تسجيل الدخول (وضع تجريبي)');">
+      <div class="field"><label>البريد الإلكتروني</label><input type="email" placeholder="you@example.com" required></div>
+      <div class="field"><label>كلمة المرور</label><input type="password" placeholder="••••••••" required></div>
+      <button type="submit" class="btn btn-red" style="width:100%; margin-top:6px;">دخول</button>
+    </form>
+  </div>
+</div>
+
+<!-- ============ TRACKING MODAL ============ -->
+<div class="overlay" id="trackOverlay" onclick="if(event.target===this) closeOverlay('trackOverlay')">
+  <div class="plain-card">
+    <button class="overlay-close" onclick="closeOverlay('trackOverlay')" aria-label="إغلاق">✕</button>
+    <h3>تتبع طلبك</h3>
+    <p class="sub">دخّل رقم الطلب وشوف حالته. (تجريبي: أي رقم بيعرضلك نفس المسار للتوضيح)</p>
+    <div class="field"><label>رقم الطلب</label><input type="text" id="orderNumber" placeholder="مثال: GEN-48213"></div>
+    <button class="btn btn-red" style="width:100%;" onclick="runTracking()">تتبع</button>
+
+    <div class="track-steps" id="trackSteps" style="display:none;">
+      <div class="track-step" id="ts1"><div class="track-dot">1</div><div class="track-text"><b>تم تأكيد الطلب</b><span>استلمنا طلبك وجاري التحقق من الدفع</span></div></div>
+      <div class="track-step" id="ts2"><div class="track-dot">2</div><div class="track-text"><b>جاري التجهيز</b><span>يتم تحضير الكود أو بيانات الحساب</span></div></div>
+      <div class="track-step" id="ts3"><div class="track-dot">3</div><div class="track-text"><b>تم التسليم</b><span>وصلت التفاصيل على بريدك الإلكتروني</span></div></div>
+    </div>
+    <p class="track-hint" id="trackHint" style="display:none;">هاي محاكاة بصرية فقط لعرض شكل الصفحة — لازم تُربط بنظام طلبات فعلي.</p>
+  </div>
+</div>
+
+<!-- ============ CART DRAWER ============ -->
+<div class="drawer-overlay" id="drawerOverlay" onclick="closeCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-head"><h3>سلة المشتريات</h3><button class="cart-close" onclick="closeCart()">✕</button></div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty" id="cartEmptyMsg">السلة فاضية — تصفح المنتجات وضيف اللي يعجبك.</div>
+  </div>
+  <div class="cart-foot">
+    <div class="cart-total-row"><span>الإجمالي</span><b class="mono" id="cartTotal">0 د.ع</b></div>
+    <button class="btn" style="width:100%; background:#25D366; color:#08210f;" onclick="checkoutCart()">
+      <span style="font-size:17px;">🟢</span> إتمام الطلب عبر واتساب
+    </button>
+    <p style="font-size:11.5px; color:var(--text-muted); text-align:center; margin-top:10px; line-height:1.6;">رح ينفتحلك واتساب برسالة جاهزة فيها تفاصيل طلبك كاملة</p>
+  </div>
+</div>
+
+<!-- ============ SUPPORT CHAT ============ -->
+<button class="chat-fab" onclick="toggleChat()" aria-label="الدعم الفني">💬</button>
+<div class="chat-panel" id="chatPanel">
+  <div class="chat-head"><span class="dot"></span><div><b>الدعم الفني</b><span>عادة يرد خلال دقائق</span></div></div>
+  <div class="chat-body" id="chatBody">
+    <div class="msg bot">أهلاً فيك 👋 أنا هون لأي استفسار عن طلبك أو المنتجات. هاد شات تجريبي حالياً بردود جاهزة.</div>
+  </div>
+  <div class="chat-input-row">
+    <input type="text" id="chatInput" placeholder="اكتب رسالتك..." onkeydown="if(event.key==='Enter') sendChat()">
+    <button onclick="sendChat()" aria-label="إرسال">➤</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
